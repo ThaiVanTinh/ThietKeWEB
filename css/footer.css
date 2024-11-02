@@ -1,0 +1,173 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* phần footer */
+/* top */
+.footer {
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  background-color: rgb(211, 3, 3);
+  color: #fff;
+  padding: 10px 0;
+}
+
+.footer-top-text {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-top-text span {
+  margin: 0 10px;
+  font-size: 20px;
+}
+/* middle */
+.footer-middle {
+  background-color: #f2f2f2;
+  padding: 20px 0;
+}
+
+.footer-middle .footer-container {
+  text-align: center;
+}
+
+.footer-middle h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe-form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+}
+
+.subscribe-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #e60000;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+/* bottom mid*/
+.footer-bottom {
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+.footer-bottom .footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 0;
+  margin: 10px;
+  min-width: 300px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-column p {
+  margin: 5px 0;
+}
+
+.footer-column img {
+  width: 45%;
+  border-radius: 10px;
+}
+
+.imgstore {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+/* End */
+.social-media {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-media p {
+  font-size: 18px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  font-size: 30px;
+}
+
+.fa-square-facebook {
+  color: #0e23e0;
+}
+.fa-square-instagram {
+  color: #d6247d;
+}
+.fa-youtube {
+  color: red;
+}
+.fa-tiktok {
+  color: black;
+}
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-bottom-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-bottom-links p {
+  font-size: 18px;
+}
+
+.group-websites {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.group-websites a {
+  margin: 0 10px;
+}
+
+.group-websites img {
+  width: 100px;
+  height: auto;
+}
+
+.footer-company-info {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  color: #666;
+}

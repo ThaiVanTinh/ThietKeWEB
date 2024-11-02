@@ -1,0 +1,384 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #cf102d;
+}
+
+/* chỉnh phần trên cùng web */
+.navigation {
+  background-color: rgb(206, 245, 148);
+}
+.navigation-top {
+  text-align: right;
+  font-size: 20px;
+  padding: 10px auto;
+  margin: 0 auto;
+  background-color: #041675;
+}
+/* chỉnh các thẻ Login, Contact, Locations */
+.navigation-top > a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  margin: 0 10px;
+  padding: auto;
+}
+/* Thêm dấu gạch trắng giữa */
+.navigation-top > a:not(:last-child)::after {
+  margin: 0 10px;
+  content: "|";
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.navigation-top a:hover {
+  color: #e04343;
+}
+
+/* chỉnh logo */
+
+.logo img {
+  width: 100%;
+  height: 70px;
+  margin-left: 10px;
+}
+
+/* chỉnh thanh tìm kiếm */
+.logo-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto 15px auto;
+  max-width: 77%;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  outline: none;
+  width: 50%;
+  padding: 0 15px;
+  margin-left: 20px;
+}
+
+.search-text {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px 0px;
+  font-size: larger;
+  flex: 1;
+}
+
+#search-btn {
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.search-box > button:hover {
+  color: #cf102d;
+}
+
+/* chỉnh giỏ hàng và yêu thích */
+.cart-content {
+  text-align: right;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.cart-content .icon {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.cart-content a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #cf102d;
+  border-radius: 25px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-wrap: nowrap;
+}
+
+.cart-content a:hover {
+  background-color: #cf102d;
+  color: #ffffff;
+  transform: scale(1.2);
+}
+#cart-count,
+#wishlist-count {
+  display: none;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: 5px;
+}
+
+#cart-count.visible,
+#wishlist-count.visible {
+  display: inline-block;
+}
+
+.cart-main {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.cart-main .heart:hover {
+  color: pink;
+  transform: scale(1.5);
+}
+
+.cart-main .cart:hover {
+  transform: scale(1.3);
+}
+
+#cart-count.visible label {
+  display: inline-block;
+}
+
+@media (max-width: 1100px) {
+  .logo-search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box input[type="text"],
+  .search-box button {
+    width: 100%;
+    font-size: larger;
+  }
+
+  .search-box {
+    width: 50%;
+    display: flex;
+    margin-top: 10px;
+    margin-right: 35px;
+  }
+
+  .cart-content {
+    gap: 3px;
+    margin-top: 10px;
+  }
+
+  .cart-content a {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+  .cart-main.heart {
+    width: 90px;
+  }
+  .icon.cart {
+    font-size: 15px;
+  }
+
+  .cart-main .heart:hover {
+    transform: scale(1.3);
+  }
+
+  .cart-main .cart:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* chỉnh mục lục */
+.main-nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px 0;
+  background-color: #cf102d;
+  margin: -15px 0px 0px;
+  border-bottom: 1px solid black;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.main-nav:hover a {
+  color: black;
+}
+.main-nav:hover {
+  background-color: white;
+}
+
+.main-nav:hover .navigation-main {
+  color: black;
+}
+.main-nav a:hover {
+  color: #cf102d;
+}
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-nav ul li {
+  position: relative;
+}
+
+.navigation-main {
+  color: white;
+  text-decoration: none;
+  padding: 0px 25px;
+  display: block;
+  font-weight: bolder;
+}
+
+.navigation-main p {
+  margin-top: 20px;
+}
+
+.navigation-main p:hover {
+  color: #cf102d;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 20px;
+  width: 300%;
+  left: 0;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.categories {
+  width: 30%;
+  text-align: left;
+}
+
+.featured-products {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.categories h3 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.categories ul li {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.categories ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.featured-products img {
+  max-width: 30%;
+  margin-left: 10px;
+}
+
+.main-nav ul li:hover .content {
+  display: flex;
+}
+.categories ul a:hover {
+  color: #cf102d;
+}
+
+@media (max-width: 1200px) {
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-nav.active ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: black;
+    font-size: 25px;
+  }
+  .menu-toggle:hover {
+    transform: scale(1.2);
+  }
+
+  .main-nav ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .main-nav ul li a {
+    padding: 10px 20px;
+  }
+
+  .content {
+    flex-direction: column;
+    width: 50%;
+    left: 0;
+  }
+
+  .categories,
+  .featured-products {
+    width: 100%;
+  }
+
+  .featured-products {
+    justify-content: center;
+  }
+
+  .featured-products img {
+    width: 60%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/android-icon-48x48.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <link rel="stylesheet" href="../css/pay.css" />
+    <link rel="stylesheet" href="../css/breadcrumb.css" />
+    <script src="../JS/toy.js"></script>
+    <script src="../JS/order.js"></script>
+    <script src="../JS/pay.js"></script>
+    <script src="../JS/userinfo.js"></script>
+    <script src="../JS/logout.js"></script>
+    <title>Thanh Toán</title>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="breadcrumb">
+      <a href="../php/toy.php">Trang chủ</a
+      ><a href="../html/cart.html">Giỏ hàng</a
+      ><a href="../html/order.html">Đặt hàng</a
+      ><a href="pay.html">Thanh toán</a>
+    </div>
+    <div class="pay-container">
+      <div class="payment">
+        <h3>Thông tin giao hàng</h3>
+        <form class="shipping-info">
+          <p class="user-name"><span class="text-deco">Họ và tên:</span></p>
+          <p class="user-phone"><span class="text-deco">Điện thoại:</span></p>
+          <p class="email-user">Email:</p>
+          <p class="user-address">
+            <span class="text-deco">Địa chỉ:</span> Chưa có địa chỉ nào được lưu
+          </p>
+          <script>
+            displayLoggedInUserInfo();
+          </script>
+          <div class="delivery-options">
+            <label>
+              <input
+                type="radio"
+                name="delivery"
+                value="Giao tận nơi"
+                checked
+              />Giao tận nơi
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="delivery"
+                value="Nhận tại cửa hàng"
+                required
+              />Nhận tại cửa hàng gần nhất
+            </label>
+          </div>
+          <!-- <div class="delivery-info">
+                    Hiện tại chưa có bất kỳ thông tin cửa hàng nào
+                </div> -->
+        </form>
+
+        <h3>Phương thức thanh toán</h3>
+        <div class="payment-methods">
+          <label>
+            <input
+              id="payment-method-vnpay"
+              type="radio"
+              name="payment-method"
+              value="VNPAY"
+            />
+            <img class="payment-icon" src="../images/vnpay.png" alt="VNPAY" />
+            Thanh toán online qua cổng VNPAY <br />
+            <img
+              src="../images/qrcode-vnpay.png"
+              alt="QR-code"
+              class="qr-code hidden"
+            />
+          </label>
+          <label>
+            <input
+              id="payment-method-cod"
+              type="radio"
+              name="payment-method"
+              value="COD"
+            />
+            <img class="payment-icon" src="../images/cod.png" alt="COD" /> Thanh
+            toán khi giao hàng (COD)
+          </label>
+          <label>
+            <input
+              id="payment-method-banking"
+              type="radio"
+              name="payment-method"
+              value="Chuyển khoản ngân hàng"
+            />
+            <img
+              class="payment-icon"
+              src="../images/mobile-banking.png"
+              alt="onl-banking"
+            />
+            Chuyển Khoản ngân hàng<br />
+            <img
+              src="../images/qrcode_mobilebangking.png"
+              alt="QR-code"
+              class="qr-code hidden"
+            />
+          </label>
+          <label>
+            <input
+              id="payment-method-creditcard"
+              type="radio"
+              name="payment-method"
+              value="Thẻ Nội địa"
+            />
+            <img
+              class="payment-icon"
+              src="../images/credit-card.png"
+              alt="credit-card"
+            />
+            Thanh toán bằng thẻ nội địa
+            <div class="credit-card-inputs hidden">
+              <input
+                class="card-style"
+                type="text"
+                name="card-number"
+                placeholder="Số thẻ"
+              />
+              <input
+                class="card-style-2"
+                type="text"
+                name="ngayhethan"
+                placeholder="MM/YY"
+                pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+                maxlength="5"
+                required
+              />
+            </div>
+          </label>
+        </div>
+        <div class="form-address flex-container">
+          <a href="./order.html">Quay lại trang đặt hàng</a>
+        </div>
+      </div>
+      <div class="thanhtoan">
+        <div class="product"></div>
+        <div class="magiamgia">
+          <input
+            type="text"
+            name="nhapmagiam"
+            id="nhapmagiam"
+            placeholder="Nhập mã giảm giá"
+          />
+          <button id="magiamgia" type="submit">Áp dụng</button>
+        </div>
+        <div class="tienhang">Tiền Hàng hóa</div>
+        <div class="giamgia">Giảm giá</div>
+        <div class="vanchuyen">Vận chuyển</div>
+        <div class="tongtien">Tổng cộng</div>
+        <button id="confirm-button">Hoàn thành</button>
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms"
+            >Tôi đã đọc và đồng ý với <a href="#">Điều khoản sử dụng</a> và
+            <a href="#">Chính sách Thành viên thân thiết My Points</a>.</label
+          >
+        </div>
+      </div>
+    </div>
+    <div id="popup-confirm" class="popup-confirm">
+      <div class="popup-content-confirm">
+        <div class="alert-confirm">
+          <img src="../images/warning.png" alt="" />
+          <h3>Hãy xác nhận bạn đã chọn đúng thông tin thanh toán</h3>
+          <div class="button-group">
+            <button id="huydathang">Hủy</button>
+            <button id="xacnhandathang">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-success" class="popup-success">
+      <div class="popup-content-success">
+        <div class="alert-success">
+          <img src="../images/checked.png" alt="" />
+          <h3>Bạn đã đặt hàng thành công</h3>
+          <div class="button-group">
+            <button id="trove">Về trang chủ</button>
+            <button id="xemdonhang">Xem đơn hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+  </body>
+</html>

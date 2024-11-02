@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/android-icon-48x48.png" />
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/breadcrumb.css" />
+    <script src="../JS/cart.js"></script>
+    <script src="../JS/toy.js"></script>
+    <script src="../JS/loginCheck.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+        $("#login").load("login.html");
+        $("#register").load("register.html");
+      });
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <div id="header"></div>
+    <div class="breadcrumb">
+      <a href="../php/toy.php">Trang chủ</a><a href="#">Thông tin</a>
+    </div>
+    <!-- Phan gio hang -->
+    <div class="cart-container">
+      <div class="cart-info">
+        <h1>Giỏ hàng của bạn</h1>
+        <div id="cart-items"></div>
+        <div class="total">
+          <p>Tổng cộng: <span id="total">0</span></p>
+        </div>
+      </div>
+
+      <div class="thanhtoan">
+        <div class="tienhang">Tiền Hàng hóa</div>
+        <div class="giamgia">Giảm giá</div>
+        <div class="tongtien">Tổng cộng</div>
+        <button id="checkout-button" type="submit">Thanh Toán Ngay</button>
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms"
+            >Tôi đã đọc và đồng ý với <a href="#">Điều khoản sử dụng</a> và
+            <a href="#">Chính sách Thành viên thân thiết My Points</a>.</label
+          >
+        </div>
+        <div>
+          <p>
+            <a href="./login.html">Đăng nhập</a><label> hoặc </label
+            ><a href="./register.html">Đăng ký</a> để mua hàng với nhiều ưu đãi
+            hơn
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- tao popup dang nhap -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="close-popup" class="close-popup">&times;</span>
+        <div id="login-content">
+          <span id="close-popup" class="close-popup">&times;</span>
+          <div id="register-content"></div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-cart-null" class="popup-cart-null">
+      <div class="popup-content-cart">
+        <span id="close-popup-cart" class="close-popup-cart">&times;</span>
+        <div class="alert-cart-null">
+          <img src="../images/close.png" alt="" />
+          <h3>Giỏ hàng của bạn đang trống</h3>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <div id="footer"></div>
+  </body>
+</html>

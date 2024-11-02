@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/android-icon-48x48.png" />
+    <link rel="stylesheet" href="../css/user.css" />
+    <link rel="stylesheet" href="../css/breadcrumb.css" />
+    <script src="../js/toy.js"></script>
+    <script src="../JS/loginCheck.js"></script>
+    <script src="../JS/userinfo.js"></script>
+    <script src="../JS/logout.js"></script>
+    <title>Thông tin khách hàng</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <div id="header"></div>
+    <div class="breadcrumb">
+      <a href="../php/toy.php">Trang chủ</a
+      ><a href="../html/user.html">Tài khoản</a>
+    </div>
+    <!-- form thong tin user -->
+    <div class="main-content">
+      <h1 class="center-text">Tài Khoản Của Bạn</h1>
+      <div class="content-wrapper">
+        <div class="sidebar">
+          <h2>Tài khoản của bạn</h2>
+          <a id="account">Tài Khoản</a>
+          <a href="#">Lịch sử mua hàng</a>
+          <a href="./wishlist.html">Danh sách yêu thích</a>
+          <a href="../html/order-status.html">Đơn hàng của bạn</a>
+          <a onclick="logout()">Đăng xuất</a>
+        </div>
+        <div class="info">
+          <div class="info-container">
+            <div class="section">
+              <h3>Thông tin tài khoản</h3>
+              <div id="user-info">
+                <p class="user-name">
+                  <span class="text-deco">Họ và tên:</span>
+                </p>
+                <p class="user-phone">
+                  <span class="text-deco">Điện thoại:</span>
+                </p>
+                <p class="email-user">Email:</p>
+                <p class="gender"><span class="text-deco">Giới tính:</span></p>
+                <script>
+                  displayLoggedInUserInfo();
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div id="footer"></div>
+  </body>
+</html>

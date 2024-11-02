@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/android-icon-48x48.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/breadcrumb.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="../JS/order.js"></script>
+    <script src="../JS/toy.js"></script>
+    <script src="../JS/userinfo.js"></script>
+    <script src="../JS/logout.js"></script>
+    <link rel="stylesheet" href="../css/order.css" />
+    <title>Trang đặt hàng</title>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="breadcrumb">
+      <a href="../php/toy.php">Trang chủ</a
+      ><a href="../html/cart.html">Giỏ hàng</a
+      ><a href="../html/order.html">Đặt hàng</a>
+    </div>
+    <div class="pay-container">
+      <div class="user-address">
+        <h3>Thông tin liên hệ</h3>
+        <p class="email-user">
+          Email:
+          <script>
+            displayLoggedInUserInfo();
+          </script>
+        </p>
+        <a class="dangxuat" onclick="logout()">Đăng xuất</a>
+        <div class="checkbox-group">
+          <input type="checkbox" id="uu-dai" />
+          <label for="uu-dai">Gửi thông tin ưu đãi cho tôi qua Email</label>
+        </div>
+        <div class="address-info">
+          <h2>Địa chỉ giao hàng</h2>
+          <div class="form-address">
+            <label for="save-add">Địa chỉ</label>
+            <select id="save-add" name="save-add" required>
+              <option value="new-add">Sử dụng địa chỉ mới</option>
+              <option value="old-add">Sử dụng địa chỉ mua trước đó</option>
+            </select>
+          </div>
+          <div class="form-address">
+            <label for="contry"
+              >Quốc gia <span class="required-fields">*</span></label
+            >
+            <select name="contry" id="contry">
+              <option value="vietnam">Việt Nam</option>
+            </select>
+          </div>
+          <div class="form-address">
+            <div class="form-address flex-container">
+              <div class="form-info-user">
+                <label for="first-name"
+                  >Họ <span class="required-fields">*</span></label
+                >
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  placeholder="Nguyễn"
+                  required
+                />
+              </div>
+              <div class="form-info-user">
+                <label for="last-name"
+                  >Tên <span class="required-fields">*</span></label
+                >
+                <input
+                  type="text"
+                  id="last-name"
+                  name="last-name"
+                  placeholder="An"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-address">
+            <label for="phone-num"
+              >Số điện thoại <span class="required-fields">*</span></label
+            >
+            <input
+              type="text"
+              name="phone-num"
+              id="phone-num"
+              placeholder="Số điện thoại"
+            />
+          </div>
+          <div class="form-address">
+            <label for="street">Số nhà, tên đường</label>
+            <input type="text" id="street" name="street" />
+          </div>
+          <div class="form-address">
+            <label
+              >Vui lòng chọn địa chỉ
+              <span class="required-fields">*</span></label
+            >
+            <div>
+              <select id="city">
+                <option value="" selected>Chọn tỉnh thành</option>
+              </select>
+            </div>
+            <div>
+              <select id="district">
+                <option value="" selected>Chọn quận huyện</option>
+              </select>
+            </div>
+            <div>
+              <select id="ward">
+                <option value="" selected>Chọn phường xã</option>
+              </select>
+            </div>
+            <script src="../js/address.js"></script>
+          </div>
+          <div class="form-address">
+            <div class="form-address flex-container">
+              <a href="./cart.html">Quay lại trang giỏ hàng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="thanhtoan">
+        <div class="product"></div>
+        <div class="magiamgia">
+          <input
+            type="text"
+            name="nhapmagiam"
+            id="nhapmagiam"
+            placeholder="Nhập mã giảm giá"
+          />
+          <button id="magiamgia" type="submit">Áp dụng</button>
+        </div>
+        <div class="tienhang">Tiền Hàng hóa</div>
+        <div class="giamgia">Giảm giá</div>
+        <div class="vanchuyen">Vận chuyển</div>
+        <div class="tongtien">Tổng cộng</div>
+        <button id="order-button" type="submit">Đặt hàng</button>
+        <div class="checkbox-group">
+          <input type="checkbox" id="bill-vat" name="bill-vat" required />
+          <label for="bill-vat">Yêu cầu xuất thông tin VAT</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms"
+            >Tôi đã đọc và đồng ý với <a href="#">Điều khoản sử dụng</a> và
+            <a href="#">Chính sách Thành viên thân thiết My Points</a>.</label
+          >
+        </div>
+      </div>
+    </div>
+    <div id="popup-address" class="popup-address">
+      <div class="popup-content-address">
+        <div class="alert-address">
+          <img src="../images/warning.png" alt="" />
+          <h3>Hãy nhập đầy đủ thông tin</h3>
+          <button id="chonlai">Nhập lại</button>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+  </body>
+</html>

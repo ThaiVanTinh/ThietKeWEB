@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/header.css" />
+    <script src="../JS/toy.js"></script>
+    <script src="../JS/header.js"></script>
+    <title>Toy Store</title>
+    <script>
+      document
+        .querySelector(".menu-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".main-nav").classList.toggle("active");
+        });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="navigation">
+        <div class="navigation-top">
+          <a id="linkdangnhap">Đăng nhập</a>
+          <a href="../html/info.html">Thông tin liên hệ</a>
+          <a href="../html/info.html#lienhe">Vị trí</a>
+        </div>
+      </div>
+      <div class="logo-search-container">
+        <div class="logo">
+          <a href="../php/toy.php">
+            <img src="../images/logo_1.png" alt="Logo" />
+          </a>
+        </div>
+        <form class="search-box" action="../php/search.php" method="GET">
+          <input
+            class="search-text"
+            type="text"
+            name="tukhoa"
+            placeholder="Nhập từ khóa để tìm kiếm"
+            required
+          />
+          <button id="search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="cart-content">
+          <a href="../html/wishlist.html" class="cart-main heart">
+            <i class="icon heart">&#9829;</i>Yêu thích
+            <span id="wishlist-count" class="visible"><label>0</label></span>
+          </a>
+          <a href="../html/cart.html" class="cart-main cart">
+            <i class="icon cart">&#128722;</i>Giỏ hàng
+            <span id="cart-count" class="visible"><label>0</label></span>
+          </a>
+        </div>
+      </div>
+      <!-- Thanh phân loại sản phẩm -->
+      <div class="main-nav-container">
+        <nav class="main-nav">
+          <button class="menu-toggle">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul>
+            <li>
+              <a
+                class="navigation-main"
+                href="../php/filter.php?category=HÀNG MỚI"
+                ><p>HÀNG MỚI</p></a
+              >
+            </li>
+            <li>
+              <a
+                class="navigation-main"
+                href="../php/filter.php?category=FASH SALE"
+                ><p>FLASH SALE</p></a
+              >
+            </li>
+            <li>
+              <a
+                class="navigation-main"
+                href="../php/filter.php?category=ĐỒ CHƠI PHƯƠNG TIỆN"
+                ><p>ĐỒ CHƠI PHƯƠNG TIỆN</p></a
+              >
+              <div class="content">
+                <div class="categories">
+                  <h3>Phân loại</h3>
+                  <ul>
+                    <li>
+                      <a href="../php/filter.php?category=Xe điều khiển"
+                        >Xe điều khiển</a
+                      >
+                    </li>
+                    <li>
+                      <a href="../php/filter.php?category=Xe mô hình"
+                        >Xe mô hình</a
+                      >
+                    </li>
+                    <li>
+                      <a href="../php/filter.php?category=Xe lắp ráp"
+                        >Xe lắp ráp</a
+                      >
+                    </li>
+                    <li>
+                      <a href="../php/filter.php?category=Xe sưu tập"
+                        >Xe sưu tập</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="featured-products">
+                  <img src="../images/nav car 1.png" alt="Product 1" />
+                  <img src="../images/nav car 2.png" alt="Product 2" />
+                  <img src="../images/nav car 3.png" alt="Product 3" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="navigation-main"
+                href="../php/filter.php?category=ĐỒ CHƠI SÁNG TẠO"
+                ><p>ĐỒ CHƠI SÁNG TẠO</p></a
+              >
+              <div class="content">
+                <div class="categories">
+                  <h3>Phân loại</h3>
+                  <ul>
+                    <li>
+                      <a href="../php/filter.php?category=Bột nặn">Bột nặn</a>
+                    </li>
+                    <li>
+                      <a href="../php/filter.php?category=Bút màu và bảng vẽ"
+                        >Bút màu và bảng vẽ</a
+                      >
+                    </li>
+                    <li>
+                      <a href="../php/filter.php?category=Đồ chơi lắp ghép"
+                        >Đồ chơi lắp ghép</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="featured-products">
+                  <img src="../images/nav bot.png" />
+                  <img src="../images/nav color.png" />
+                  <img src="../images/nav lapghep.png" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="navigation-main"
+                href="../php/filter.php?category=ĐỒ DÙNG HỌC TẬP"
+                ><p>ĐỒ DÙNG HỌC TẬP</p></a
+              >
+            </li>
+            <li>
+              <a
+                class="navigation-main"
+                href="../php/filter.php?category=THÚ BÔNG"
+                ><p>THÚ BÔNG</p></a
+              >
+            </li>
+            <li>
+              <a class="navigation-main" href="../php/filter.php?category=ROBOT"
+                ><p>ROBOT</p></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
